@@ -1,0 +1,13 @@
+<div class="container">
+  	<div class="row">
+  	<%= render 'sidebar' %>
+  	<div class= "col-sm-10">
+  		
+
+  		<% @students.each do |s| %>
+  		<%= s.name %>
+  		<% end %>
+  	</div>
+
+
+  	</div>

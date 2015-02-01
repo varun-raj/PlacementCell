@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @event.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+
+<h3>Eligible Students</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Regno</th>
+      <th>Dob</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Year</th>
+      <th>Department</th>
+      <th>Tenth</th>
+      <th>Twelfth</th>
+      <th>Cgpa</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @eligible_students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.regno %></td>
+        <td><%= student.dob %></td>
+        <td><%= student.gender %></td>
+        <td><%= student.address %></td>
+        <td><%= student.mobile %></td>
+        <td><%= student.email %></td>
+        <td><%= student.year %></td>
+        <td><%= student.department_id %></td>
+        <td><%= student.tenth %></td>
+        <td><%= student.twelfth %></td>
+        <td><%= student.cgpa %></td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

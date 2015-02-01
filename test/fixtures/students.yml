@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  regno: 
+  dob: 2015-01-31
+  gender: false
+  address: MyText
+  mobile: 
+  email: 
+  year: 1
+  department_id: 1
+  tenth: 1.5
+  twelfth: 1.5
+  cgpa: 1.5
+
+two:
+  name: MyString
+  regno: 
+  dob: 2015-01-31
+  gender: false
+  address: MyText
+  mobile: 
+  email: 
+  year: 1
+  department_id: 1
+  tenth: 1.5
+  twelfth: 1.5
+  cgpa: 1.5

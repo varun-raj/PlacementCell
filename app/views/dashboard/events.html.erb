@@ -1,0 +1,26 @@
+<div class="container">
+  	<div class="row">
+  	<%= render 'sidebar' %>
+  	<div class= "col-sm-10">
+
+  	<div class="col-sm-6">
+  		<h3>List of events</h3>
+
+  		<% @events.each do |e| %>
+  			<%= e.title %>
+  		<% end %>
+  	</div>
+  	<div class="col-sm-6">
+
+<div id="calendar"></div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+$('#calendar').fullCalendar({
+    events: '/events.json'
+
+});
+});
+
+</script></div></div>
+</div>

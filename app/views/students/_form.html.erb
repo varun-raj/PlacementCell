@@ -1,0 +1,69 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, required: :true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :regno %><br>
+    <%= f.text_field :regno , required: :true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :dob %><br>
+    <%= f.date_select :dob , required: :true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :gender %><br>
+<%= f.label :gender, "Male", :value => true %>
+<%= f.radio_button :gender, true %>
+
+<%= f.label :gender, "Female", :value => false %>
+<%= f.radio_button :gender, false %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address %><br>
+    <%= f.text_area :address, required: :true, :class => "form-control"  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :mobile %><br>
+    <%= f.text_field :mobile, required: :true, :class => "form-control"  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, required: :true, :class => "form-control"  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :year %><br>
+    <%= f.number_field :year , required: :true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :department_id %><br>
+    <%= f.collection_select :department_id, Department.all, :id, :name, include_blank: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tenth %><br>
+    <%= f.text_field :tenth  , required: :true, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :twelfth %><br>
+    <%= f.text_field :twelfth, required: :true, :class => "form-control"  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cgpa %><br>
+    <%= f.text_field :cgpa , required: :true, :class => "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
