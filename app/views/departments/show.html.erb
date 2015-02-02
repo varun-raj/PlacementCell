@@ -1,3 +1,9 @@
+<div class="container">
+  	<div class="row">
+  	<%= render 'dashboard/sidebar' %>
+  	<div class= "col-sm-10">
+  		
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +21,64 @@
   <%= @department.category %>
 </p>
 
+
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>
+
+
+
+ 		
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Regno</th>
+      <th>Dob</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Year</th>
+      <th>Department</th>
+     
+      <th colspan="3">Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @department.students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.regno %></td>
+        <td><%= student.dob %></td>
+        <td>
+        <% if student.gender == true %>
+        Male
+        <% elsif student.gender == false %>
+Female
+        <% end  %>
+        </td>
+        <td><%= student.address %></td>
+        <td><%= student.mobile %></td>
+        <td><%= student.email %></td>
+        <td><%= student.year %></td>
+        <td><%= student.department.name %></td>
+        
+        <td><%= link_to student do %>
+ <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+        <% end %></td>
+        <td><%= link_to edit_student_path(student) do %>
+ <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+
+        <% end %></td>
+        <td><%= link_to student, method: :delete, data: { confirm: 'Are you sure?' } do %>
+ <span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
+
+<% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div></div>

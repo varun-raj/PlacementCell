@@ -1,18 +1,28 @@
 Rails.application.routes.draw do
-  resources :events
+ 
+  get 'dashboard/events/:id' => "events#show", as: :event
+
 
   get 'dashboard/index' => "dashboard#index", as: :dashboard_index
 
   get 'dashboard/events' => "dashboard#events", as: :dashboard_events
 
   get 'dashboard/students' => "dashboard#students", as: :dashboard_students
+  get 'dashboard/students' => "dashboard#students", as: :students
+  get 'dashboard/students/:id' => "students#show", as: :student
 
   get 'dashboard/departments'  => "dashboard#departments", as: :dashboard_departments
+
+  get 'enroll' => 'students#new', as: :new_enroll
  
+ post 'dashboard/students' => 'students#create'
   devise_for :admins
   resources :departments
 
   resources :students
+
+  resources :events
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -4,11 +4,12 @@
   	<div class= "col-sm-10">
 
   	<div class="col-sm-6">
-  		<h3>List of events</h3>
-
+  		<h3>List of events <%= link_to "New", new_event_path, :class => "btn btn-sm btn-info" %></h3>
+    <div class="list-group">
   		<% @events.each do |e| %>
-  			<%= e.title %>
+  		<%= link_to e.title, event_path(e), :class => "list-group-item" %>
   		<% end %>
+      </div>
   	</div>
   	<div class="col-sm-6">
 
